@@ -80,7 +80,7 @@ public class JEDReloadListener implements ResourceManagerReloadListener {
 	}
 
 	public Map<String, String> getMap(LanguageInfo info) {
-		return map.get(info);
+		return map.getOrDefault(info, map.get(new LanguageInfo("en_us", "US", "English", false)));
 	}
 
 	@Override
