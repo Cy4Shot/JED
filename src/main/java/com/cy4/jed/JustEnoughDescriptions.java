@@ -2,6 +2,7 @@ package com.cy4.jed;
 
 import java.io.IOException;
 
+import com.cy4.jed.config.JEDConfig;
 import com.cy4.jed.json.JEDReloadListener;
 
 import net.minecraft.client.Minecraft;
@@ -14,6 +15,7 @@ import net.minecraftforge.fml.IExtensionPoint;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.network.NetworkConstants;
 
@@ -27,6 +29,8 @@ public class JustEnoughDescriptions {
 				() -> new IExtensionPoint.DisplayTest(() -> NetworkConstants.IGNORESERVERONLY,
 						(remote, isServer) -> true));
 
+		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, JEDConfig.CLIENT_SPEC, "jed-client.toml");
+		
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 	
@@ -39,7 +43,7 @@ public class JustEnoughDescriptions {
 		}
 		
 		@SubscribeEvent
-		public static void onInitializeClient(FMLClientSetupEvent evt) {
+		public static void clientTickerSetup(FMLClientSetupEvent evt) {
 			MinecraftForge.EVENT_BUS.addListener((TickEvent.ClientTickEvent e) -> {
 				if (e.phase == TickEvent.Phase.END) {
 					ClientTimer.endTick(Minecraft.getInstance());

@@ -1,7 +1,12 @@
 package com.cy4.jed.gui;
 
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import com.cy4.jed.JustEnoughDescriptions;
 import com.cy4.jed.json.JEDDescriptionHelper;
+import com.mojang.blaze3d.platform.InputConstants;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 
@@ -41,10 +46,22 @@ public class JEDScreen extends Screen {
 		this.y = (this.height - this.ySize) / 2;
 
 		renderBg(ms);
-		renderItem();
+		renderIt(ms);
 		renderDc(ms);
 
 		super.render(ms, mouseX, mouseY, partialTicks);
+	}
+
+	@Override
+	public boolean keyPressed(int p_97765_, int p_97766_, int p_97767_) {
+		if (super.keyPressed(p_97765_, p_97766_, p_97767_)) {
+			return true;
+		} else if (this.minecraft.options.keyInventory.isActiveAndMatches(InputConstants.getKey(p_97765_, p_97766_))) {
+			this.onClose();
+			return true;
+		}
+
+		return false;
 	}
 
 	private void renderBg(PoseStack ms) {
@@ -54,26 +71,45 @@ public class JEDScreen extends Screen {
 		this.blit(ms, x, y, 0, 0, this.xSize, this.ySize);
 	}
 
-	private void renderItem() {
+	private void renderIt(PoseStack ms) {
+		Component text = stack.getItem().getName(stack);
+		int wrap = this.xSize - 50;
+
+		if (getNumLines(font, text, wrap) == 1) {
+			drawSplitString(ms, font, JEDDescriptionHelper.getItemTitle(stack), x + 10, y + 18, this.xSize - 50,
+					0x000000, false);
+		} else {
+			drawSplitString(ms, font, JEDDescriptionHelper.getItemTitle(stack), x + 10, y + 22, this.xSize - 50,
+					0x000000, true);
+		}
+
 		setBlitOffset(100);
 		RenderSystem.enableDepthTest();
-		this.itemRenderer.renderAndDecorateItem(stack, x + 80, y + 15, 16, 16);
+		this.itemRenderer.renderAndDecorateItem(stack, x + 146, y + 14, 16, 16);
 		setBlitOffset(0);
 	}
 
 	private void renderDc(PoseStack ms) {
-		drawSplitString(ms, font, JEDDescriptionHelper.getDescriptionForItem(stack.getItem()), x + 10, y + 40,
-				this.xSize - 20, 4210752);
+		drawSplitString(ms, font, JEDDescriptionHelper.getDescriptionForItem(stack), x + 10, y + 40, this.xSize - 20,
+				4210752, false);
 	}
 
 	public void drawSplitString(PoseStack ms, Font fontRenderer, Component str, int x, int y, int wrapWidth,
-			int textColor) {
+			int textColor, boolean revScale) {
 
 		int i = 0;
-		for (FormattedCharSequence string : fontRenderer.split(str, wrapWidth)) {
-			font.draw(ms, string, x, y + i * fontRenderer.lineHeight, textColor);
+		List<FormattedCharSequence> lines = fontRenderer.split(str, wrapWidth).stream().collect(Collectors.toList());
+		if (revScale)
+			Collections.reverse(lines);
+
+		for (FormattedCharSequence string : lines) {
+			font.draw(ms, string, x, y + i * fontRenderer.lineHeight * (revScale ? -1 : 1), textColor);
 			i++;
 		}
+	}
+
+	public int getNumLines(Font font, Component str, int ww) {
+		return font.split(str, ww).size();
 	}
 
 	@Override

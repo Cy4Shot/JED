@@ -17,6 +17,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.cy4.jed.config.JEDConfig;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableMap.Builder;
 import com.google.gson.Gson;
@@ -42,6 +43,7 @@ public class JEDReloadListener implements ResourceManagerReloadListener {
 	private static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().disableHtmlEscaping().create();
 	private static final Pattern UNSUPPORTED_FORMAT_PATTERN = Pattern.compile("%(\\d+\\$)?[\\d.]*[df]");
 	private static final Logger LOGGER = LogManager.getLogger();
+	private static final LanguageInfo EN_US = new LanguageInfo("en_us", "US", "English", false);
 
 	private Map<LanguageInfo, Map<String, String>> map = new HashMap<>();
 
@@ -52,7 +54,7 @@ public class JEDReloadListener implements ResourceManagerReloadListener {
 		for (ResourceLocation entry : objects) {
 
 			String name = StringUtils.substringBetween(entry.getPath(), "/", ".");
-			if (languages.contains(name)) {
+			if (languages.contains(name) && !JEDConfig.excludedModIds.get().contains(entry.getNamespace())) {
 
 				Builder<String, String> builder = ImmutableMap.builder();
 				BiConsumer<String, String> biconsumer = builder::put;
@@ -80,7 +82,9 @@ public class JEDReloadListener implements ResourceManagerReloadListener {
 	}
 
 	public Map<String, String> getMap(LanguageInfo info) {
-		return map.getOrDefault(info, map.get(new LanguageInfo("en_us", "US", "English", false)));
+		if (JEDConfig.alwaysEnUs.get())
+			return map.get(EN_US);
+		return map.getOrDefault(info, map.get(EN_US));
 	}
 
 	@Override

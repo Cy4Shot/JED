@@ -1,24 +1,26 @@
-modLoader="javafml" #mandatory
-loaderVersion="[39,)" #mandatory This is typically bumped every Minecraft version by Forge. See our download page for lists of versions.
+modLoader="javafml"
+loaderVersion="[39,)"
 license="MIT"
-#issueTrackerURL="https://change.me.to.your.issue.tracker.example.invalid/" #optional
-[[mods]] #mandatory
-modId="jed" #mandatory
-version="${file.jarVersion}" #mandatory
-displayName="Just Enough Descriptions" #mandatory
-#updateJSONURL="https://change.me.example.invalid/updates.json" #optional
-#displayURL="https://change.me.to.your.mods.homepage.example.invalid/" #optional
-logoFile="examplemod.png" #optional
-credits="A mod by Cy4 :D" #optional
-authors="Cy4" #optional
+issueTrackerURL="https://github.com/Cy4Shot/JED/issues"
+
+[[mods]]
+modId="jed"
+version="${file.jarVersion}"
+displayName="Just Enough Descriptions"
+logoFile="jed.png" 
+
+displayURL="https://github.com/Cy4Shot/JED/"
+
+credits="Cy4 for the code, TruePenut for the logo, and many many people for the descriptions and translations!" 
+authors="Cy4" 
 description='''
 This mod adds descriptions to every Item and Block in MC!
 '''
 
-[[dependencies.jed]] #optional
-    modId="forge" #mandatory
-    mandatory=true #mandatory
-    versionRange="[39,)" #mandatory
+[[dependencies.jed]] 
+    modId="forge" 
+    mandatory=true 
+    versionRange="[39,)" 
     ordering="NONE"
     side="BOTH"
 

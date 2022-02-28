@@ -13,7 +13,7 @@ apply plugin: 'maven-publish'
 
 version = '1.0'
 group = 'com.cy4.jed'
-archivesBaseName = 'jed'
+archivesBaseName = 'JustEnoughDescriptions'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
