@@ -1,3 +1,5 @@
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/J3J1BCKUH)
+
 # JustEnoughDescriptions
 JED is mod that adds descriptions to every item in Minecraft with a simple UI!
 
