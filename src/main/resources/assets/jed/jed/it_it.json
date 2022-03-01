@@ -1,0 +1,11 @@
+{	"nan" : "Questa descrizione non è stata ancora creata! Contatta l'autore della mod per implementare JED!",
+	"minecraft:air" : "Questa è aria. Perlopiù Azoto e Ossigeno. Tutto qui, e.. probabilmente non dovresti neanche essere qui...",
+	"minecraft:stone" : "Un semplice blocco da costruzione che si trova sotto la superficie. Per ottenerlo, dovrai minarlo con l'incantamento Silk Touch o cuocere il Pietrisco in una Fornace.",
+	"minecraft:granite" : "Una roccia plutonica rosea simile alla pietra. Può essere levigata o tagliata in scale o lastre. Si trova sottoterra.",
+	"minecraft:polished_granite" : "Una roccia plutonica rosea levigata, usata per costruire. Può essere tagliata in scale o lastre.",
+	"minecraft:diorite" : "Una roccia bianca sotterranea, spesso chiamata \"cacca di uccello\" da un bellissimo youtuber Svedese.  Può essere levigata o tagliata in scale o lastre. Si trova sottoterra.",
+	"minecraft:polished_diorite" : "\"Cacca di uccello\" levigata. Può essere usata per costruire o può essere tagliata in scale o lastre.",
+	"minecraft:andesite" : "Una roccia grigio chiaro simile alla pietra. Può essere levigata o tagliata in scale o lastre. Si trova sottoterra.",
+	"minecraft:polished_andesite" : "Una roccia grigio chiaro levigata. Può essere usata per costruire o può essere tagliata in scale o lastre. ",
+	"empty": ""
+}

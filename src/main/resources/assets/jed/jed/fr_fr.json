@@ -1,0 +1,15 @@
+{	"nan" : "Cette description n'existe pas encore ! Contactez le créateur du mod ou de la personne responsable pour qu'il implémente JED !",
+	"minecraft:air" : "C'est de l'air, composé majoritairement d'azote et de dioxygène. Si vous voyez ceci, c'est que vous n'êtes probablement pas au bon endroit...",
+	"minecraft:stone" : "Un bloc de construction basique trouvable sous la surface. Vous aurez besoin de l'enchantement Toucher de Soie ou d'utiliser un four pour l'obtenir.",
+	"minecraft:granite" : "Une roche rosée similaire à la pierre. Peut être polie et utilisée pour créer des demi-dalles ou des escaliers. Trouvée sous la surface.",
+	"minecraft:polished_granite" : "Une roche rosée polie similaire à la pierre. Peut être utilisée pour créer des demi-dalles ou des escaliers. ",
+	"minecraft:diorite" : "Une roche blanche trouvable sous la surface, plus communément appelé \"Fiente d'oiseau\" par un célébre YouTuber suédois.",
+	"minecraft:polished_diorite" : "Une version polie de la \"Fiente d'oiseau\". Utilisable pour la construction ou pour réaliser des escaliers et des demi-dalles.",
+	"minecraft:andesite" : "Une roche grise claire similaire à la pierre. Peut être polie ou transformée en escaliers/murs. Trouvée sous la surface.",
+	"minecraft:polished_andesite" : "Une roche grise claire polie. Utilisée pour la construction ou pour réaliser des escaliers/murs.",
+	"minecraft:deepslate" : "Une roche sombre trouvable dans les profondeurs de votre monde Minecraft. Peut seulement être obtenue grâce à l'enchantement Toucher de Soie ou en la faisant chauffer dans un Four.",
+	"minecraft:cobbled_deepslate" : "J'imagine que puisqu'il y a de la pierre, il y a de la pierre des abîmes?",
+	"minecraft:polished_deepslate" : "Une version polie de la roche sombre. Utilisable pour créer des escaliers/murs.",
+	"minecraft:calcite" : "Une roche sédimentaire, trouvable sous terre. Utilisable pour créer des escaliers/murs. Si vous en trouvez, vous êtes verni ! (À ne pas confondre avec la diorite !)",
+	"empty": ""
+}

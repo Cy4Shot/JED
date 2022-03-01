@@ -1,0 +1,18 @@
+{	"nan" : "Diese Beschreibung wurde noch nicht hinzugefügt! Bitte wende dich an den Mod Ersteller oder an den Verantwortigen für die Beschreibung!",
+	"minecraft:air" : "Das ist Luft. Vor allem N2 und O2. Ohne Schummeleien nicht erhaltbar. Was machst du also hier? ;)",
+	"minecraft:stone" : "Das ist Stein! Er generiert unter der Erde, bis zum Y-Level 0. Kann ab einer Holzspitzhacke abgebaut werden.",
+	"minecraft:granite" : "Ein pinker Tiefengestein unter der Erde, woraus Stufen/Platten/Mauern gefertigt werden können.",
+	"minecraft:polished_granite" : "Die polierte Variante des Granits. Kann zu Stufen/Platten/Mauern verarbeitet werden. Eignet sich gut für Dekoration.",
+	"minecraft:diorite" : "Ein  weises Gestein unter der Erde, woraus Stufen/Platten/Mauern gefertigt werden können.",
+	"minecraft:polished_diorite" : "Die polierte Variente des Diorits. Kann zu Stufen/Platten/Mauern verarbeitet werden. Eignet sich gut für Dekoration.",
+	"minecraft:andesite" : "Ein gräuliches Gestein unter der Erde, woraus Stufen/Platten/Mauern gefertigt werden können.",
+	"minecraft:polished_andesite" : "Die polierte Variante des Andesits. Kann zu Stufen/Platten/Mauern verarbeitet werden. Eignet sich gut für Dekoration.",
+	"minecraft:deepslate" : "Tiefenschiefer, wird unter dem Y-Level -5 gefunden. Kann zu mehreren varianten verarbeitet werden.",
+	"minecraft:dripstone_block" : "Kann aus Tropfsteinen gefertigt werden. Wird in Tropfstein-Höhlen gefunden.",
+	"minecraft:grass_block" : "Der Grasblock ist das Fundament der Oberwelt und kann ziemlich überall an der Oberfläche gefunden werden.",
+	"minecraft:dirt" : "Der Erdblock macht 4-5 schichten unter dem Grasblock aus und wird bis zum Y-Level 0 gefunden.",
+	"minecraft:coarse_dirt" : "Grobe erde kann aus Erde und Kies gefertigt werden und kommt in der Riesenbaumtaiga, in der Tafelbergwaldhochebene und in der zerklüfteten Savanne, sowie deren Varianten natürlich vor.",
+	"minecraft:podzol" : "Podsol ist eine variante von Erde bildet neben dem Grasblock und der Groben Erde den Bodenbelag in Riesenbaumtaigas und Bambusdchungeln.",
+	"minecraft:rooted_dirt" : "Wurzelerde kommt unter Azaleenbäume vor und kann sich mehr als einen stapel unter dem stamm vertikal weitersetzen.",
+	"empty": ""
+}
