@@ -12,6 +12,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.IExtensionPoint;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
@@ -58,5 +59,9 @@ public class JustEnoughDescriptions {
 				}
 			});
 		}
+	}
+	
+	public static boolean isJei() {
+		return ModList.get().isLoaded("jei") && JEDConfig.jeiIntegration.get();
 	}
 }

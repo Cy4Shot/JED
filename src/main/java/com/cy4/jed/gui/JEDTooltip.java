@@ -24,6 +24,10 @@ public class JEDTooltip {
 
 	@SubscribeEvent
 	public static void onTooltip(ItemTooltipEvent event) {
+
+		if (ClientUtil.isMouseInJeiWindow())
+			return;
+
 		Minecraft mc = Minecraft.getInstance();
 
 		if (mc.player != null) {
@@ -46,9 +50,13 @@ public class JEDTooltip {
 
 	@SubscribeEvent
 	public static void onTooltipRender(RenderTooltipEvent.Pre event) {
-		if (Screen.hasShiftDown()) {
 
-			Minecraft mc = Minecraft.getInstance();
+		if (ClientUtil.isMouseInJeiWindow())
+			return;
+
+		Minecraft mc = Minecraft.getInstance();
+
+		if (Screen.hasShiftDown()) {
 
 			int i = 0;
 			int j = event.getComponents().size() == 1 ? -2 : 0;
