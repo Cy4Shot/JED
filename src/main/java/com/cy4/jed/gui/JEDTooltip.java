@@ -9,7 +9,6 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiComponent;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.tooltip.ClientTooltipComponent;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraftforge.api.distmarker.Dist;
@@ -20,6 +19,7 @@ import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = JustEnoughDescriptions.MOD_ID, value = Dist.CLIENT)
 public class JEDTooltip {
+	private static final Minecraft mc = Minecraft.getInstance();
 	private static float holdTimer = 0;
 
 	@SubscribeEvent
@@ -28,13 +28,12 @@ public class JEDTooltip {
 		if (ClientUtil.isMouseInJeiWindow())
 			return;
 
-		Minecraft mc = Minecraft.getInstance();
-
 		if (mc.player != null) {
-			event.getToolTip().add(new TextComponent("Hold ").withStyle(ChatFormatting.ITALIC)
-					.withStyle(ChatFormatting.GRAY).append(new TextComponent("Shift").withStyle(ChatFormatting.AQUA)));
+			event.getToolTip()
+					.add(new TextComponent("Hold ").withStyle(ChatFormatting.ITALIC).withStyle(ChatFormatting.GRAY)
+							.append(new TextComponent(ClientUtil.getJedKeyName()).withStyle(ChatFormatting.AQUA)));
 
-			if (Screen.hasShiftDown()) {
+			if (ClientUtil.isJedKeyDown()) {
 				holdTimer += ClientTimer.deltaTick;
 
 				if (holdTimer >= JEDConfig.tooltipActivationTime.get()) {
@@ -50,13 +49,11 @@ public class JEDTooltip {
 
 	@SubscribeEvent
 	public static void onTooltipRender(RenderTooltipEvent.Pre event) {
-
-		if (ClientUtil.isMouseInJeiWindow())
+		
+		if (ClientUtil.isMouseInJeiWindow() || event.getItemStack().isEmpty())
 			return;
 
-		Minecraft mc = Minecraft.getInstance();
-
-		if (Screen.hasShiftDown()) {
+		if (ClientUtil.isJedKeyDown()) {
 
 			int i = 0;
 			int j = event.getComponents().size() == 1 ? -2 : 0;
@@ -83,10 +80,12 @@ public class JEDTooltip {
 
 			float ratio = holdTimer / JEDConfig.tooltipActivationTime.get();
 
-			RenderSystem.disableDepthTest();
-			GuiComponent.fill(new PoseStack(), j2, k2 + j + 4, j2 + i + 4, k2 + j + 6, 0xFF444444);
-			GuiComponent.fill(new PoseStack(), j2, k2 + j + 4, j2 + 4 + (int) (i * ratio), k2 + j + 6, 0xFFFFFFFF);
-			RenderSystem.enableDepthTest();
+			if (ratio != 0f) {
+				RenderSystem.disableDepthTest();
+				GuiComponent.fill(new PoseStack(), j2, k2 + j + 4, j2 + i + 4, k2 + j + 6, 0xFF444444);
+				GuiComponent.fill(new PoseStack(), j2, k2 + j + 4, j2 + 4 + (int) (i * ratio), k2 + j + 6, 0xFFFFFFFF);
+				RenderSystem.enableDepthTest();
+			}
 		}
 	}
 }

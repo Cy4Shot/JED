@@ -14,7 +14,7 @@ public class JEDJeiPlugin implements IModPlugin {
 
 	@Override
 	public ResourceLocation getPluginUid() {
-		return new ResourceLocation("jed:jed");
+		return new ResourceLocation(JustEnoughDescriptions.MOD_ID, JustEnoughDescriptions.MOD_ID);
 	}
 
 	@Override

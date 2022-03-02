@@ -40,6 +40,7 @@ public class JEDReloadListener implements ResourceManagerReloadListener {
 
 	public static final JEDReloadListener INSTANCE = new JEDReloadListener();
 
+	private static final Minecraft mc = Minecraft.getInstance();
 	private static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().disableHtmlEscaping().create();
 	private static final Pattern UNSUPPORTED_FORMAT_PATTERN = Pattern.compile("%(\\d+\\$)?[\\d.]*[df]");
 	private static final Logger LOGGER = LogManager.getLogger();
@@ -48,7 +49,6 @@ public class JEDReloadListener implements ResourceManagerReloadListener {
 	private Map<LanguageInfo, Map<String, String>> map = new HashMap<>();
 
 	protected void apply(List<ResourceLocation> objects, ResourceManager manager) {
-		Minecraft mc = Minecraft.getInstance();
 		Set<String> languages = mc.getLanguageManager().languages.keySet();
 
 		for (ResourceLocation entry : objects) {
