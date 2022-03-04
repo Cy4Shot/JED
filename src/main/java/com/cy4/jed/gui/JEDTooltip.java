@@ -36,7 +36,7 @@ public class JEDTooltip {
 			if (ClientUtil.isJedKeyDown()) {
 				holdTimer += ClientTimer.deltaTick;
 
-				if (holdTimer >= JEDConfig.tooltipActivationTime.get()) {
+				if (holdTimer >= JEDConfig.tooltipActivationTime.get().floatValue()) {
 					mc.setScreen(new JEDScreen(TextComponent.EMPTY, event.getItemStack()));
 				}
 			} else {
@@ -49,8 +49,11 @@ public class JEDTooltip {
 
 	@SubscribeEvent
 	public static void onTooltipRender(RenderTooltipEvent.Pre event) {
-		
+
 		if (ClientUtil.isMouseInJeiWindow() || event.getItemStack().isEmpty())
+			return;
+
+		if (JEDConfig.tooltipActivationTime.get().floatValue() <= 0.1)
 			return;
 
 		if (ClientUtil.isJedKeyDown()) {
@@ -78,7 +81,7 @@ public class JEDTooltip {
 				k2 = mc.screen.height - j - 6;
 			}
 
-			float ratio = holdTimer / JEDConfig.tooltipActivationTime.get();
+			float ratio = holdTimer / JEDConfig.tooltipActivationTime.get().floatValue();
 
 			if (ratio != 0f) {
 				RenderSystem.disableDepthTest();

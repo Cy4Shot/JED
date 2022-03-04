@@ -15,7 +15,7 @@ public class JEDConfig {
 	}
 	
 	public static ForgeConfigSpec.BooleanValue jeiIntegration;
-	public static ForgeConfigSpec.ConfigValue<Float> tooltipActivationTime;
+	public static ForgeConfigSpec.DoubleValue tooltipActivationTime;
 	public static ForgeConfigSpec.BooleanValue alwaysEnUs;
 	public static ForgeConfigSpec.ConfigValue<List<? extends String>> excludedModIds;
 
@@ -33,7 +33,7 @@ public class JEDConfig {
 		builder.push("UI Options");
 		tooltipActivationTime = builder
 				.comment("The time required (ticks) to hold Shift for the tooltip to activate")
-				.define("tooltip_activation_time", 20F);
+				.defineInRange("tooltip_activation_time", 20D, 0D, 200D);
 		builder.pop();
 
 		// Description Options
