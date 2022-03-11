@@ -1,0 +1,13 @@
+{	"nan" : "¡Esta descripción no ha sido creada todavía! ¡Contacta con el autor del mod o el responsable de su implementación!",
+	"minecraft:air" : "Esto es aire, mayormente N2 y O2. Es literalmente eso, seguramente no deberías estar aquí...",
+	"minecraft:stone" : "Un bloque de construcción basico encontrado bajo la superficie. Para obtenerlo necesitaras usar el encantamiento Toque de Seda o quemar Roca en un Horno.",
+	"minecraft:granite" : "Una roca plutónica de color rosa similar a la piedra. Puede ser pulida o convertida en escaleras/vallas. Se encuentra bajo tierra.",
+	"minecraft:polished_granite" : "Una roca plutónica de color rosa pulida, usada para contruir. Puede convertirse en escaleras/vallas.",
+	"minecraft:diorite" : "Una roca de color blanco, normalmente llamada \"cagada de pajaro\" por un guapo youtuber sueco. Puede ser pulida o convertida en escaleras/vallas. Se encuentra bajo tierra.",
+	"minecraft:polished_diorite" : "\"Cagada de pajaro\" pulida. Puede ser usada para construir o hacer escaleras/vallas.",
+	"minecraft:andesite" : "Una roca de color gris claro similar a la piedra. Puede ser pulida o convertida en escaleras/vallas. Se encuentra bajo tierra.",
+	"minecraft:polished_andesite" : "Una roca gris clara pulida. Usada para construir o hacer escaleras/vallas.",
+	"minecraft:deepslate" : "Una roca oscura encontrada en las profundidades de tu mundo de Minecraft. Solo puede ser obtenida mediante el encantamiento de Toque de Seda o quemandola en un Horno.",
+	"minecraft:cobbled_deepslate" : "Supongo que si existe la roca tiene que existir la roca de pizarra oscura. ¿Por qué no se llama Roca Oscuro?",
+	"empty": ""
+}
