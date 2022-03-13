@@ -19,7 +19,7 @@ public class JEDDescriptionHelper {
 
 		return new TextComponent(map.getOrDefault(reg, map.getOrDefault("null", "ERROR: NULL KEY NOT PRESENT")));
 	}
-	
+
 	public static boolean hasDescriptionForItem(ItemStack item) {
 		String reg = item.getItem().getRegistryName().toString();
 		Map<String, String> map = JEDReloadListener.INSTANCE.getMap(mc.getLanguageManager().getSelected());
