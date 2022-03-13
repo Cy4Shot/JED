@@ -3,7 +3,6 @@ package com.cy4.jed.gui;
 import com.cy4.jed.ClientTimer;
 import com.cy4.jed.JustEnoughDescriptions;
 import com.cy4.jed.config.JEDConfig;
-import com.cy4.jed.json.JEDDescriptionHelper;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 
@@ -27,9 +26,6 @@ public class JEDTooltip {
 	public static void onTooltip(ItemTooltipEvent event) {
 
 		if (ClientUtil.isMouseInJeiWindow())
-			return;
-
-		if (!(JEDDescriptionHelper.hasDescriptionForItem(event.getItemStack())) && !(JEDConfig.allowIfEmpty.get()))
 			return;
 
 		if (mc.player != null) {
@@ -58,9 +54,6 @@ public class JEDTooltip {
 			return;
 
 		if (JEDConfig.tooltipActivationTime.get().floatValue() <= 0.1)
-			return;
-
-		if (!(JEDDescriptionHelper.hasDescriptionForItem(event.getItemStack())) && !(JEDConfig.allowIfEmpty.get()))
 			return;
 
 		if (ClientUtil.isJedKeyDown()) {

@@ -16,7 +16,6 @@ public class JEDConfig {
 	
 	public static ForgeConfigSpec.BooleanValue jeiIntegration;
 	public static ForgeConfigSpec.DoubleValue tooltipActivationTime;
-	public static ForgeConfigSpec.BooleanValue allowIfEmpty;
 	public static ForgeConfigSpec.BooleanValue alwaysEnUs;
 	public static ForgeConfigSpec.ConfigValue<List<? extends String>> excludedModIds;
 
@@ -35,9 +34,6 @@ public class JEDConfig {
 		tooltipActivationTime = builder
 				.comment("The time required (ticks) to hold Shift for the tooltip to activate")
 				.defineInRange("tooltip_activation_time", 20D, 0D, 200D);
-		allowIfEmpty = builder
-				.comment("Wether the user should be able to open a description even if it doesn't exist.")
-				.define("allow_if_empty", false);
 		builder.pop();
 
 		// Description Options
